@@ -1,0 +1,50 @@
+<body [ngStyle]="{
+    'background-image': 'url('+movieInfo?.backdrop_path+')',
+    'background-size': 'cover',
+    'background-repeat': 'no-repeat'
+  }">
+    <div class="Top-Bar">
+        <div class="Top-Bar-Elements">
+            <button class="Logo-Button" [routerLink]="['/homepage']">
+                <img class="Logo" src="../../assets/Logo_Fake.png" />
+            </button>
+            <button class="signinButton" [routerLink]="['/sign-in']">Sign In</button>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="context">
+        <div class="left">
+            <p class="title">{{movieInfo?.title}}</p>
+            <div class="rating">⭐{{movieInfo?.vote_average}} | {{movieInfo?.vote_count}} • {{movieMedia?.runtime}} mins </div>
+            <div class="genres-container">
+                <p class="genres" *ngFor="let genres of movieMedia?.genres">{{genres.name}}</p>
+            </div>
+            <p class="info">{{movieInfo?.overview}}</p>
+            <div class="trailer">
+                <button class="playLong">▷ Play Now</button>
+                <button class="playShort" (click)="getVideo(getId)">Trailer</button>
+                <div class="video-popup-overlay" *ngIf="showVideoPopup">
+                    <div class="video-popup-container" class="video-background">
+                        <button class="stop-video" (click)="stopVideo()">✖</button>
+                      <youtube-player *ngIf="videoId" [videoId]="videoId"></youtube-player>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <p class="poster-text">Poster</p>
+            <div class="poster-container">
+                <div *ngFor="let index of [].constructor(5).keys()">
+                    <img class="poster-image" [src]="movieImages[index]?.file_path">
+                </div>
+            </div>
+            <p class="actor-text">Actors</p>
+            <div class="actor-container">
+                <div *ngFor="let index of [].constructor(9).keys()">
+                    <img class="actor-image" [src]="movieCredits[index]?.profile_path">
+                    <p class="actor-name">{{movieCredits[index]?.name}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(33, 34, 70);
+}
+
+app-movie-details {
+    display: none;
+}
+
+.Top-Bar {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.Top-Bar-Elements {
+    width: 95%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70vw;
+}
+
+.Logo-Button {
+    width: 15%;
+    height: 20vh;
+    background-color: transparent;
+    border: none;
+}
+
+.Logo {
+    width: 100%;
+    min-width: 200px;
+    background-color: transparent;
+    border: none;
+}
+
+.signinButton {
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    font-size: 1vw;
+    font-family: Sans-Serif;
+    font-weight: bold;
+    width: 6vw;
+    height: 5vh;
+    color: white;
+}
+
+.movie-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.background {
+    width: 15vw;
+    min-width: 300px;
+    filter: brightness(0.3);
+}
+
+.poster {
+    position: absolute;
+    width: 6vw;
+    min-width: 120px;
+    top: 50px;
+    left: 55%;
+}
+
+.title { 
+    position: absolute;
+    width: 80%;
+    min-width: 120px;
+    top: 45%;
+    left: 15%;
+    font-size: 20px;
+    color: white;
+}
+
+.context {
+    position: absolute;
+    width: 70%;
+    min-width: 120px;
+    top: 55%;
+    left: 15%;
+    font-size: 15px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+}
+
+.button {
+    position: absolute;
+    width: 120px;
+    height: 40px;
+    min-width: 120px;
+    bottom: 10%;
+    left: 15%;
+    color: white;
+    background-color: transparent;
+    border-color: white;
+}

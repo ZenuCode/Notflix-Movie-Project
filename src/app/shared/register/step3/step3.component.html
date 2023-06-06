@@ -1,0 +1,39 @@
+<body>
+    <div class="Top-Bar">
+        <div class="Top-Bar-Elements">
+            <button class="Logo-Button" [routerLink]="['/homepage']">
+                <img class="Logo" src="../../assets/Logo_Fake.png" />
+            </button>
+            <button class="signinButton" [routerLink]="['/sign-in']">Sign In</button>
+        </div>
+    </div>
+    <hr>
+    <div class="intro-container">
+        <p class="step">STEP 3 OF 3</p>
+        <p class="topText">Choose the plan that’s right for you</p>
+        <p class="midText">Watch all you want.</p>
+        <p class="midText">Recommendations just for you.</p>
+        <p class="midText">Change or cancel your plan anytime.</p>
+    </div>
+
+    <div class="plan-container">
+        <div class="button-display">
+            <p class="text">Choose Plan:</p>
+            <button class="plan-button" (click)="redIt(1); selectPlan(1)">Standard with ads</button>
+            <button class="plan-button" (click)="redIt(2); selectPlan(2)">Standard</button>
+            <button class="plan-button" (click)="redIt(3); selectPlan(3)">Premium</button>
+        </div>
+        <div class="infoRow">
+            <div class="text-display" *ngFor="let text of plans">
+                <p class="col0" [ngClass]="text.red ? 'red' : 'black'">{{ text.info[0] }}</p>
+                <p class="col1" [ngClass]="text.red ? 'red' : 'black'">{{ text.info[1] }}</p>
+                <p class="col2" [ngClass]="text.red ? 'red' : 'black'">{{ text.info[2] }}</p>
+                <p class="col3" [ngClass]="text.red ? 'red' : 'black'">{{ text.info[3] }}</p>
+                <p class="col4" [ngClass]="text.red ? 'red' : 'black'">{{ text.info[4] }}</p>
+            </div>
+        </div>
+        <button class="NextButton" type="submit" [disabled]="plan == 0" (click)="onSubmit()">Next</button>
+    </div>
+
+    <div class="help-container"></div>
+</body>

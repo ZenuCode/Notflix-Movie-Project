@@ -1,0 +1,27 @@
+<body>
+    <div class="Top-Bar">
+      <div class="Top-Bar-Elements">
+        <button class="Logo-Button" [routerLink]="['/homepage']">
+          <img class="Logo" src="../../assets/Logo_Fake.png" />
+        </button>
+        <button class="signinButton" [routerLink]="['/sign-in']">Sign In</button>
+      </div>
+    </div>
+      <div class="movie-container" infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="500"
+        (scrolled)="onScroll()"  
+      >
+        <div *ngFor="let index of movieList">
+          <div class="image-container">
+            <img class="background" src="{{index.poster_path}}">
+            <img class="poster" src="{{index.poster_path}}">
+            <p class="title">{{index.title}}</p>
+            <p class="context">{{index.overview}}</p>
+            <button class="button" type="submit" (click)="setId(index.id)">
+              More Details
+            </button>
+          </div>
+        </div>
+      </div>
+  </body>

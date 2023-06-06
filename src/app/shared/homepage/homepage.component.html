@@ -1,0 +1,49 @@
+<html></html>
+<body>
+    <div class="TopBar">
+        <img class="Logo" src="../../../assets/Logo_Fake.png" />
+        <div class="TopBarDivider">
+            <select id="dropList" onchange="">
+                <option *ngFor="let lang of langList" [value]="langList">{{lang}}</option>
+            </select>
+            <button class="signinButton" [routerLink]="['/sign-in']">Sign In</button>
+        </div>
+    </div>
+    
+    <div class="Top-Container">
+        <div class="Top-TextContainer">
+            <div class="Top-Text1">{{bigImage[0]}}</div>
+            <div class="Top-Text2">{{bigImage[1]}}</div>
+            <div class="Top-Text3">{{bigImage[2]}}</div>
+        </div>
+        <div class="Top-Email">
+            <form class="formFormat" [formGroup]="storeData" (ngSubmit)="onSubmit()">
+                <div>
+                    <label for="email"></label>
+                    <input class="Top-EmailForm" id="email" type="text" placeholder="Email address" formControlName="email">
+                    <div [hidden]="!storeData.controls['email'].errors?.['email'] || !storeData.controls['email'].touched">
+                        <div class="message">Primary email address is not valid.</div>
+                    </div>
+                </div>
+                <div><button class="Top-EmailButton" type="submit" [disabled]="!storeData.valid">Get Started</button></div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="Middle-Container">
+        <div class="Middle-Format" *ngFor="let block of smallBox">
+            <div class="Middle-Block">
+                <div class="Middle-TextContainer">
+                    <div class="Middle-BigText">{{block.bigText}}</div>
+                    <div class="Middle-SmallText">{{block.smallText}}</div>
+                </div>
+                <img class="Middle-Image" src={{block.image}}>
+            </div>
+            <div *ngIf="block.id != smallBox.length">
+                <hr class="Middle-Line">
+            </div>
+        </div>
+    </div>
+
+    <div class="Bottom-Container"></div>
+</body>

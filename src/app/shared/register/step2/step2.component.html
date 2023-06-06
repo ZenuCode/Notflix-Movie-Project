@@ -1,0 +1,37 @@
+<body>
+    <div class="Top-Bar">
+        <div class="Top-Bar-Elements">
+            <button class="Logo-Button" [routerLink]="['/homepage']">
+                <img class="Logo" src="../../assets/Logo_Fake.png" />
+            </button>
+            <button class="signinButton" [routerLink]="['/sign-in']">Sign In</button>
+        </div>
+    </div>
+    <hr>
+    <div class="user-container">
+        <p class="step">STEP 2 OF 3</p>
+        <p class="topText">Create a Username && Add your Tmdb Api_Key</p>
+        <p class="midText">Just a few more steps and you're done!</p>
+        <p class="midText">We hate paperwork, too.</p>
+        <form class="formFormat" [formGroup]="storeData" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="username"></label>
+                <input class="Form-Style" id="username" type="text" placeholder="Enter your username" formControlName="username">
+                <div class="message" *ngIf="storeData.controls['username'].invalid && (storeData.controls['username'].dirty || storeData.controls['username'].touched)">
+                    Username is Required
+                </div>
+            </div>
+            <div>
+                <label for="tmdbKey"></label>
+                <input class="Form-Style" id="tmdbKey" type="tmdbKey" placeholder="Add your Tmdb_Api_Key" formControlName="tmdbKey">
+                <div class="message" *ngIf="storeData.controls['tmdbKey'].invalid && (storeData.controls['tmdbKey'].dirty || storeData.controls['tmdbKey'].touched)">
+                    tmdb Key is Required
+                </div>
+            </div>
+            <div><button class="NextButton" type="submit" [disabled]="allFill()">Next</button></div>
+        </form>
+    </div>
+
+    <div class="help-container"></div>
+
+</body>

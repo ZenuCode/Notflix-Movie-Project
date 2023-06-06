@@ -1,0 +1,37 @@
+<body>
+    <div class="Top-Bar">
+        <div class="Top-Bar-Elements">
+            <button class="Logo-Button" [routerLink]="['/homepage']">
+                <img class="Logo" src="../../assets/Logo_Fake.png" />
+            </button>
+            <button class="signinButton" [routerLink]="['/sign-in']">Sign In</button>
+        </div>
+    </div>
+    <hr>
+    <div class="user-container">
+        <p class="step">STEP 1 OF 3</p>
+        <p class="topText">Create a password to start your membership</p>
+        <p class="midText">Just a few more steps and you're done!</p>
+        <p class="midText">We hate paperwork, too.</p>
+        <form class="formFormat" [formGroup]="storeData" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="email"></label>
+                <input class="Form-Style" id="email" type="text" placeholder="Email" formControlName="email">
+                <div class="message" *ngIf="storeData.controls['email'].invalid && (storeData.controls['email'].dirty || storeData.controls['email'].touched)">
+                    Email is Required
+                </div>
+            </div>
+            <div>
+                <label for="password"></label>
+                <input class="Form-Style" id="password" type="password" placeholder="Add a Password" formControlName="password">
+                <div class="message" *ngIf="storeData.controls['password'].invalid && (storeData.controls['password'].dirty || storeData.controls['password'].touched)">
+                    Password is Required
+                </div>
+            </div>
+            <div><button class="NextButton" type="submit">Next</button></div>
+            <div class="message" *ngIf="userExist">Email already in use. Please use another email</div>
+        </form>
+    </div>
+
+    <div class="help-container"></div>
+</body>

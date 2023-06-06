@@ -1,0 +1,39 @@
+<html></html>
+<body>
+    <div class="Top-Bar">
+        <button class="Logo-Button" [routerLink]="['/homepage']">
+            <img class="Logo" src="../../../assets/Logo_Fake.png" />
+        </button>
+    </div>
+
+    <div class="Signin-Box">
+        <p class="Box-Text">Sign In</p>
+        <form class="formFormat" [formGroup]="storeData" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="email"></label>
+                <input class="Form-Style" id="email" type="text" placeholder="Email or phone number" formControlName="email">
+                <div class="message" *ngIf="storeData.controls['email'].invalid && (storeData.controls['email'].dirty || storeData.controls['email'].touched)">
+                    Email is Required
+                </div>
+            </div>
+            <div>
+                <label for="password"></label>
+                <input class="Form-Style" id="password" type="password" placeholder="Password" formControlName="password">
+                <div class="message" *ngIf="storeData.controls['password'].invalid && (storeData.controls['password'].dirty || storeData.controls['password'].touched)">
+                    Password is Required
+                </div>
+            </div>
+            <div><button class="SignInButton" type="submit">Sign In</button></div>
+        </form>
+        <div class="Preference">
+            <div class="boxDivider">
+                <input class="checkbox" type="checkbox" id="remember" name="remember" checked>
+                <label for="remember">Remember Me</label>
+            </div>
+            <button class="Help">Need help?</button>
+        </div>
+    </div>
+
+    <div class="Information-Box"></div>
+
+</body>
